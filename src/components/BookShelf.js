@@ -9,11 +9,11 @@ export default class BookShelf extends React.Component {
         //get the props 
         const { shelves, books, onChange } = this.props;
 
-        console.log(
-            "books : ", books,
-            "shelves : ", shelves,
-            "onchange : ", onChange
-        );
+        // console.log(
+        //     "books : ", books,
+        //     "shelves : ", shelves,
+        //     "onchange : ", onChange
+        // );
 
 
         const shelvesCondition =[

@@ -28,6 +28,7 @@ export default class CurrentlyReading extends React.Component {
                         {
                             currentlyReading.map((book) => (
                                 <Book
+                                    key={book.id}
                                     book={book}
                                     shelves={shelves}
                                     onChange={onChange} />

@@ -1,20 +1,21 @@
 import React from 'react'
-import Nav from './Nav';
 import BookShelf from './BookShelf'
 import OpenSearch from './OpenSearch'
 
 class BookList extends React.Component {
 
-    render() {
-      const {shelves, changeBookStatus, books} = this.props;
+  render() {
+    const { shelves, changeBookStatus, books } = this.props;
 
-        return (
-          <div className="list-books">
-            <Nav/>
-            <BookShelf shelves={shelves} books={books} onChange={changeBookStatus} />
-            <OpenSearch/>
-          </div>
-        )
-    }
+    return (
+      <div className="list-books">
+        <div className="list-books-title">
+          <h1>MyReads</h1>
+        </div>
+        <BookShelf shelves={shelves} books={books} onChange={changeBookStatus} />
+        <OpenSearch />
+      </div>
+    )
+  }
 }
 export default BookList
