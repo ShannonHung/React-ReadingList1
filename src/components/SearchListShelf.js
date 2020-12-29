@@ -30,6 +30,7 @@ export default class SearchListShelf extends React.Component {
                         {
                             searchBooks.map((book)=>(
                                 <Book
+                                    key={book.id}
                                     book={book}
                                     shelves={shelves}
                                     onChange={onChange} />

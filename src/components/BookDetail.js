@@ -26,7 +26,7 @@ export default class BookDetail extends React.Component {
         console.log("<BookDetail.js> book => ", book);
         if(book!==undefined){
             return(
-                <Book book={book} onChange={onChange}/>
+                <Book key={book.id} book={book} onChange={onChange}/>
             )
         }
         

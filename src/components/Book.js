@@ -8,9 +8,6 @@ export default class Book extends React.Component {
         //get Image from object which key is thumbnail
         const imageUrl = imageLinks ? imageLinks.thumbnail : "";
 
-        console.log(
-            "Check Shelves in Book.js " + shelves + "onChange=>" + onChange
-        )
 
         return (
             <li key={book.id}>

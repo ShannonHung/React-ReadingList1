@@ -28,10 +28,11 @@ class BooksApp extends React.Component {
     let newShelfValue = event.target.value;
     this.setState((previousState) => {
       BooksAPI.update(newBook, newShelfValue).then(response => {
+    
         //update shelf state of new updates book
         newBook.shelf = newShelfValue;
         //we need to update this.state.books, remove the book which going to change state first
-        const updateBooks = previousState.books.filter((b) => b.id != newBook.id)
+        const updateBooks = previousState.books.filter((b) => b.id !== newBook.id)
         //put the new status book into updateBooks
         updateBooks.push(newBook)
         //renew this.state

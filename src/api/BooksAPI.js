@@ -6,7 +6,7 @@ const api = "https://reactnd-books-api.udacity.com"
 let token = localStorage.token
 if (!token)
   console.log("here is token =>", token)
-  token = localStorage.token = Math.random().toString(36).substr(-8)
+  token = localStorage.token = "thisisToken"
 
 const headers = {
   'Accept': 'application/json',

@@ -1,12 +1,10 @@
 # MyReads Project
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+## 功能介紹
+1. 可以供使用者移動書籍至currently reading, want to Read, read
+2. 也提供搜尋功能，可以讓使用者查詢想要閱讀的書籍並且加入自己的書庫
 
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://github.com/facebookincubator/create-react-app) to bootstrap the project.
-
-## TL;DR
-
-To get started developing right away:
+## 使用方式
 
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
@@ -15,13 +13,13 @@ To get started developing right away:
 ```bash
 ├── CONTRIBUTING.md
 ├── README.md - This file.
-├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
-├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
+├── SEARCH_TERMS.md # 表示你可以搜尋的內容
+├── package.json # 執行npm start會需要用到的package
 ├── public
-│   ├── favicon.ico # React Icon, You may change if you wish.
+│   ├── favicon.ico # React Icon
 │   └── index.html # DO NOT MODIFY
 └── src
-    ├── App.css # Styles for your app. Feel free to customize this as you desire.
+    ├── App.css # Styles for your app.
     ├── App.js # This is the root of your app. Contains static HTML right now.
     ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
     ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
@@ -33,15 +31,18 @@ To get started developing right away:
     └── index.js # You should not need to modify this file. It is used for DOM rendering only.
 ```
 
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
+## Version2 Update 
+1. When the browser is refreshed, the same information is displayed on the page. Unfortunately, the information is not persisted after the browser required. Which means you're not using API correctly to update the books shelf.
+> Ans: I change the token in API...Then the backen server can save the status now.
+
+2. 
 
 ## Backend Server
-
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
-
-* [`getAll`](#getall)
-* [`update`](#update)
-* [`search`](#search)
+後端是接udacity提供的api，進行存取，可以在[`BooksAPI.js`](src/BooksAPI.js)了解街後端api的連接方式。
+- 基本有以下methods:
+    * [`getAll`](#getall)
+    * [`update`](#update)
+    * [`search`](#search)
 
 ### `getAll`
 
