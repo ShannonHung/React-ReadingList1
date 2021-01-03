@@ -14,7 +14,7 @@ pipeline {
 
     stage('Building image') {
       steps {
-        sh 'docker build -t shannonhung/react-myread .'
+        sh 'dockerImage = docker.build registry'
       }
     }
 
@@ -22,5 +22,6 @@ pipeline {
   environment {
     registry = 'shannonhung/react-myread'
     registryCredential = 'dockerhub'
+    dockerImage = ''
   }
 }
