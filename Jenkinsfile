@@ -1,7 +1,7 @@
 pipeline {
   agent {
-    dockerfile {
-      filename 'Dockerfile'
+    docker {
+      image 'gustavoapolinario/jenkins-docker'
     }
 
   }
@@ -15,8 +15,9 @@ pipeline {
     stage('Building image') {
       steps {
         script {
-        	docker.build 'shannonhung/react-myread' + ":$BUILD_NUMBER"
-      	}
+          docker.build 'shannonhung/react-myread' + ":$BUILD_NUMBER"
+        }
+
       }
     }
 
