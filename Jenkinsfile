@@ -15,8 +15,8 @@ pipeline {
     stage('Building image') {
       steps {
         script {
-          dockerImage = docker.build(shannonhung/react-myread)
-        }
+        	docker.build 'shannonhung/react-myread' + ":$BUILD_NUMBER"
+      	}
       }
     }
 
