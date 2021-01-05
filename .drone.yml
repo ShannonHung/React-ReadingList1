@@ -1,32 +1,16 @@
-
-kind: pipeline
-type: docker
-name: default
-
-steps:
-  - name: build
+pipeline:
+  build:
     image: node:8.11.3-alpine
     commands:
-      - yarn install
-  - name: notify
+      - npm install
+      - npm test
+  slack:
     image: plugins/slack
-    settings:
-      webhook: https://hooks.slack.com/services/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
-      channel: ibmcloud
-      username: drone
-      template: >
-        *{{#success build.status}}✔{{ else }}✘{{/success}} {{ uppercasefirst build.status }}: Build #{{ build.number }}* (type: `{{ build.event }}`)
-
-        Commit: {{ repo.name }}/{{ truncate build.commit 8 }}
-
-        Branch: {{ build.branch }}
-
-        Author: {{ build.author }}
-
-        <{{ build.link }}|Visit build page ↗>
-    when:
-      branch:
-        - master
-      event:
-        - push
-      status: [ success, failure ]
+    webhook: https://hooks.slack.com/services/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
+    channel: ibmcloud
+    template: >
+      {{#success build.status}}
+        build {{build.number}} succeeded. Good job.
+      {{else}}
+        build {{build.number}} failed. Fix me please.
+      {{/success}}
