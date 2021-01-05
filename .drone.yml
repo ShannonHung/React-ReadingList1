@@ -6,7 +6,7 @@ pipeline:
       - yarn install
   slack:
     image: plugins/slack
-    webhook: "https://hooks.slack.com/services/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"
+    webhook: "https://hooks.slack.com/services/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"
     channel: "#ibmcloud"
     template: >
       {{#success build.status}}
