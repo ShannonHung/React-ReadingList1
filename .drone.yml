@@ -13,7 +13,7 @@ steps:
     settings:
       webhook: https://hooks.slack.com/services/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
       channel: ibmcloud
-      username: Drone CI
+      username: MyReadNotify
       template: >
         *{{#success build.status}}✔{{ else }}✘{{/success}} {{ uppercasefirst build.status }}: Build #{{ build.number }}* (type: `{{ build.event }}`)
 
