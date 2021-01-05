@@ -5,6 +5,7 @@ pipeline:
     webhook: https://hooks.slack.com/services/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
     # Slack 頻道名稱。
     channel: docker
+    token: xoxb-1613541780243-1613659433410-rCubaeoAOdcSnTBBuk3q08Y1
     # Slack 掛鉤使用者名稱。
     username: incoming-webhook
     when:
