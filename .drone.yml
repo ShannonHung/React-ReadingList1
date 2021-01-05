@@ -2,7 +2,7 @@ pipeline:
   notify:
     image: plugins/slack
     # 剛才複製的 `Webhook URL` 掛鉤網址。
-    webhook: https://hooks.slack.com/services/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
+    webhook: https://hooks.slack.com/services/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
     # Slack 頻道名稱。
     channel: docker
     # Slack 掛鉤使用者名稱。
