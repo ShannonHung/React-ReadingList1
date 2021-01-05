@@ -1,15 +1,11 @@
-pipeline:
-  build:
-    image: node:8.11.3-alpine
-    commands:
-      - yarn install
-  slack:
+pipeline:  
+  notify:
     image: plugins/slack
-    webhook: https://hooks.slack.com/services/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
-    channel: ibmcloud
-    template: >
-      {{#success build.status}}
-        build {{build.number}} succeeded. Good job.
-      {{else}}
-        build {{build.number}} failed. Fix me please.
-      {{/success}}
+    # 剛才複製的 `Webhook URL` 掛鉤網址。
+    webhook: https://hooks.slack.com/services/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
+    # Slack 頻道名稱。
+    channel: docker
+    # Slack 掛鉤使用者名稱。
+    username: incoming-webhook
+    when:
+      status: [ success, failure ]
