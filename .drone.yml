@@ -4,7 +4,7 @@ pipeline:
     image: node:8.11.3-alpine
     commands:
       - yarn install
-  - name: notify
+    name: notify
       image: plugins/slack
       settings:
         webhook: https://hooks.slack.com/services/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
