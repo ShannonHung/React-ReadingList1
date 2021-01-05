@@ -7,7 +7,7 @@ pipeline:
   slack:
     image: plugins/slack
     webhook: https://hooks.slack.com/services/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
-    channel: docker
+    channel: 作伙
     template: >
       {{#success build.status}}
         build {{build.number}} succeeded. Good job 目前運行非常正常nice!.
