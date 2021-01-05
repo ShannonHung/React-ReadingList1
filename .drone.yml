@@ -11,7 +11,7 @@ steps:
   - name: notify
     image: plugins/slack
     settings:
-      webhook: https://hooks.slack.com/services/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
+      webhook: https://hooks.slack.com/services/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
       channel: ibmcloud
       username: Drone CI
       template: >
