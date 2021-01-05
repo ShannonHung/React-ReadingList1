@@ -4,13 +4,25 @@ pipeline:
     image: node:8.11.3-alpine
     commands:
       - yarn install
-  slack:
-    image: plugins/slack
-    webhook: "https://hooks.slack.com/services/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"
-    channel: "#ibmcloud"
-    template: >
-      {{#success build.status}}
-        build {{build.number}} succeeded. Good job 目前運行非常正常nice!.
-      {{else}}
-        build {{build.number}} failed. Fix me please 現在build失敗.
-      {{/success}}
+  - name: notify
+      image: plugins/slack
+      settings:
+        webhook: https://hooks.slack.com/services/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
+        channel: ibmcloud
+        username: Drone CI
+        template: >
+          *{{#success build.status}}✔{{ else }}✘{{/success}} {{ uppercasefirst build.status }}: Build #{{ build.number }}* (type: `{{ build.event }}`)
+
+          Commit: {{ repo.name }}/{{ truncate build.commit 8 }}
+
+          Branch: {{ build.branch }}
+
+          Author: {{ build.author }}
+
+          <{{ build.link }}|Visit build page ↗>
+      when:
+        branch:
+          - master
+        event:
+          - push
+        status: [ success, failure ]
