@@ -3,7 +3,7 @@ pipeline:
   build:
     image: node:8.11.3-alpine
     commands:
-      - npm install
+      - yarn install
   slack:
     image: plugins/slack
     webhook: https://hooks.slack.com/services/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
