@@ -11,9 +11,9 @@ steps:
   - name: notify
     image: plugins/slack
     settings:
-      webhook: https://hooks.slack.com/services/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
+      webhook: https://hooks.slack.com/services/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
       channel: ibmcloud
-      username: Drone CI
+      username: drone
       template: >
         *{{#success build.status}}✔{{ else }}✘{{/success}} {{ uppercasefirst build.status }}: Build #{{ build.number }}* (type: `{{ build.event }}`)
 
