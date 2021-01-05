@@ -1,28 +1,32 @@
 
-pipeline:
-  build:
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: build
     image: node:8.11.3-alpine
     commands:
       - yarn install
-    name: notify
-      image: plugins/slack
-      settings:
-        webhook: https://hooks.slack.com/services/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
-        channel: ibmcloud
-        username: Drone CI
-        template: >
-          *{{#success build.status}}✔{{ else }}✘{{/success}} {{ uppercasefirst build.status }}: Build #{{ build.number }}* (type: `{{ build.event }}`)
+  - name: notify
+    image: plugins/slack
+    settings:
+      webhook: https://hooks.slack.com/services/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
+      channel: ibmcloud
+      username: Drone CI
+      template: >
+        *{{#success build.status}}✔{{ else }}✘{{/success}} {{ uppercasefirst build.status }}: Build #{{ build.number }}* (type: `{{ build.event }}`)
 
-          Commit: {{ repo.name }}/{{ truncate build.commit 8 }}
+        Commit: {{ repo.name }}/{{ truncate build.commit 8 }}
 
-          Branch: {{ build.branch }}
+        Branch: {{ build.branch }}
 
-          Author: {{ build.author }}
+        Author: {{ build.author }}
 
-          <{{ build.link }}|Visit build page ↗>
-      when:
-        branch:
-          - master
-        event:
-          - push
-        status: [ success, failure ]
+        <{{ build.link }}|Visit build page ↗>
+    when:
+      branch:
+        - master
+      event:
+        - push
+      status: [ success, failure ]
