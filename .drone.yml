@@ -22,12 +22,12 @@ steps:
   #     tags: latest
   
 
-# 失敗...不知道為甚麼QQ
+# 失敗...不知道為甚麼QQIKjU9SIQRYW6T8lcKllzZvxK
   - name: notify
     image: plugins/slack
     settings:
       access_token: xoxb-1612877955221-1601203692583-3aaeRKQLNIv1XnpX37mvNNqF
-      webhook: https://hooks.slack.com/services/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
+      webhook: https://hooks.slack.com/services/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
       channel: workspace
       template: >
         *{{#success build.status}}✔{{ else }}✘{{/success}} {{ uppercasefirst build.status }}: Build #{{ build.number }}* (type: `{{ build.event }}`)
