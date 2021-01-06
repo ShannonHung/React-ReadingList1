@@ -26,7 +26,7 @@ steps:
       - npm -v
 
   - name: Build image
-    image: docker/compose:1.25.0-rc2-alpine
+    image: docker/compose:1.23.2
     volumes:
       - name: docker_socket
         path: /var/run/docker.sock
