@@ -3,15 +3,15 @@ type: docker
 name: default
 
 steps:
-  - name: build
-    image: node:13.12.0-alpine
-    commands:
-    - yarn install
+  # - name: build
+  #   image: node:13.12.0-alpine
+  #   commands:
+  #   - yarn install
 
-  - name: test
-    image: node:13.12.0-alpine
-    commands:
-    - npm run test
+  # - name: test
+  #   image: node:13.12.0-alpine
+  #   commands:
+  #   - npm run test
 
   # - name: docker-build
   #   image: plugins/docker
@@ -25,7 +25,7 @@ steps:
   - name: notify
     image: plugins/slack
     settings:
-      webhook: https://hooks.slack.com/services/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
+      webhook: https://hooks.slack.com/services/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
       channel: dockertest
       template: >
         *{{#success build.status}}✔{{ else }}✘{{/success}} {{ uppercasefirst build.status }}: Build #{{ build.number }}* (type: `{{ build.event }}`)
