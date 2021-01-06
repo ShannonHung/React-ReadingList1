@@ -23,7 +23,7 @@ steps:
   - name: Test application with npm
     image: node:13.12.0-alpine
     commands:
-      - npm -v
+      - npm -v 
 
   # - name: Build image
   #   image: docker/compose:1.23.2
