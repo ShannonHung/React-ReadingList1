@@ -25,7 +25,7 @@ steps:
     commands:
       - npm -v 
       - yarn install
-      - yarn run test
+      - npm run test
 
   - name: Build docker image
     image: docker/compose:1.23.2
