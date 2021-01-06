@@ -28,7 +28,7 @@ steps:
         path: /var/run/docker.sock
     commands:
       - cd /drone/src/
-      - docker build -t myreadDroneTest-app:latest .
+      - docker build -t myreadtest1:latest .
 
   
 
