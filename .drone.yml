@@ -53,25 +53,25 @@ steps:
 
 
 # 失敗...不知道為甚麼QQIKjU9SIQRYW6T8lcKllzZvxK
-  # - name: notify
-  #   image: plugins/slack
-  #   settings:
-  #     access_token: xapp-1-A01HX5VHDU6-1609268006182-77d16214f85e41c210b30ca5150664550889616264fe5bff8f4bb0d018ca451d
-  #     webhook: https://hooks.slack.com/services/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
-  #     channel: workspace
-  #     template: >
-  #       *{{#success build.status}}✔{{ else }}✘{{/success}} {{ uppercasefirst build.status }}: Build #{{ build.number }}* (type: `{{ build.event }}`)
+  - name: notify
+    image: plugins/slack
+    settings:
+      access_token: xapp-1-A01HX5VHDU6-1609268006182-77d16214f85e41c210b30ca5150664550889616264fe5bff8f4bb0d018ca451d
+      webhook: https://hooks.slack.com/services/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
+      channel: workspace
+      template: >
+        *{{#success build.status}}✔{{ else }}✘{{/success}} {{ uppercasefirst build.status }}: Build #{{ build.number }}* (type: `{{ build.event }}`)
 
-  #       Commit: {{ repo.name }}/{{ truncate build.commit 8 }}
+        Commit: {{ repo.name }}/{{ truncate build.commit 8 }}
 
-  #       Branch: {{ build.branch }}
+        Branch: {{ build.branch }}
 
-  #       Author: {{ build.author }}
+        Author: {{ build.author }}
 
-  #       <{{ build.link }}|Visit build page ↗>
-  #   when:
-  #     branch:
-  #       - master
-  #     event:
-  #       - push
-  #     status: [ success, failure ]
+        <{{ build.link }}|Visit build page ↗>
+    when:
+      branch:
+        - master
+      event:
+        - push
+      status: [ success, failure ]
