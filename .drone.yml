@@ -1,8 +1,3 @@
-kind: pipeline
-type: docker
-name: default
-
-steps:
   # - name: build
   #   image: node:13.12.0-alpine
   #   commands:
@@ -20,6 +15,15 @@ steps:
   #     password: ${password}
   #     repo: shannonhung/react-myread
   #     tags: latest
+kind: pipeline
+type: docker
+name: Staging
+
+steps:
+  - name: Test application with npm
+    image: node:13.12.0-alpine
+    commands:
+    - npm -v 
 
   - name: Build image
     image: docker:20.10.0-dind
@@ -28,19 +32,21 @@ steps:
         path: /var/run/docker.sock
     commands:
       - cd /drone/src/
-      - docker build -t myreadtest1:latest .
-volumes:
-  - name: docker_socket
-    host:
-      path: /var/run/docker.sock
+      - docker build -t reinsurance-app:latest .
+  # - name: Create service
+  #   image: docker/compose
+  #   volumes:
+  #     - name: docker_socket
+  #       path: /var/run/docker.sock
+  #   commands:
+  #     - docker-compose -f /drone/src/docker-compose.yml -p backend down
+  #     - docker-compose -f /drone/src/docker-compose.yml -p backend up -d
 
 trigger:
   branch:
     - master
   event:
     - push
-
-  
 
 # 失敗...不知道為甚麼QQIKjU9SIQRYW6T8lcKllzZvxK
   # - name: notify
