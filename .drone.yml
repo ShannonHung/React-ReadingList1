@@ -13,13 +13,13 @@ steps:
     commands:
     - npm run test
 
-  - name: docker-build
-    image: plugins/docker
-    settings:
-      username: ${username}
-      password: ${password}
-      repo: shannonhung/react-myread
-      tags: latest
+#   - name: docker-build
+#     image: plugins/docker
+#     settings:
+#       username: ${username}
+#       password: ${password}
+#       repo: shannonhung/react-myread
+#       tags: latest
   
 
   # - name: notify
