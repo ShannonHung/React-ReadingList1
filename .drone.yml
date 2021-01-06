@@ -29,10 +29,9 @@ steps:
     image: docker:20.10.0-dind
     volumes:
       - name: docker_socket
-        path: /var/run/docker.sock
+        path: /var/run/docker.sock:/var/run/docker.sock
     commands:
       - echo "test"
-      - systemctl start docker.service
       - cd /drone/src/
       - docker build -t reinsurance-app:latest .
 
@@ -47,9 +46,7 @@ steps:
 
 
 volumes:
-  - name: docker_socket
-    host:
-      path: /var/run/docker.sock
+  - /var/run/docker.sock:/var/run/docker.sock
 
 trigger:
   branch:
