@@ -20,14 +20,15 @@ steps:
   #     password: ${password}
   #     repo: shannonhung/react-myread
   #     tags: latest
+
   - name: Build image
-  image: docker:20.10.0-dind
-  volumes:
-    - name: docker_socket
-      path: /var/run/docker.sock
-  commands:
-    - cd /drone/src/
-    - docker build -t myreadDroneTest-app:latest .
+    image: docker:20.10.0-dind
+    volumes:
+      - name: docker_socket
+        path: /var/run/docker.sock
+    commands:
+      - cd /drone/src/
+      - docker build -t myreadDroneTest-app:latest .
 
   
 
