@@ -23,33 +23,33 @@ steps:
   - name: build
     image: node:13.12.0-alpine
     commands:
-    - yarn install
+    - npm install
 
   - name: test
     image: node:13.12.0-alpine
     commands:
     - npm run test
 
-#   - name: Build docker image
-#     image: docker/compose:1.23.2
-#     volumes:
-#       - name: docker_socket
-#         path: /var/run/docker.sock
-#     commands:
-#       - echo "test"
-#       - cd /drone/src/
-#       - docker build -t dronetest:latest .
+  - name: Build docker image
+    image: docker/compose:1.23.2
+    volumes:
+      - name: docker_socket
+        path: /var/run/docker.sock
+    commands:
+      - echo "test"
+      - cd /drone/src/
+      - docker build -t dronetest:latest .
 
-#   - name: Create service
-#     image: docker/compose
-#     volumes:
-#       - name: docker_socket
-#         path: /var/run/docker.sock
-#     commands:
-#       #把原本的container 關掉
-#       - docker-compose -f /drone/src/docker-compose.yml -p backend down
-#       #重新開啟現在的container
-#       - docker-compose -f /drone/src/docker-compose.yml -p backend up -d
+  - name: Create service
+    image: docker/compose
+    volumes:
+      - name: docker_socket
+        path: /var/run/docker.sock
+    commands:
+      #把原本的container 關掉
+      - docker-compose -f /drone/src/docker-compose.yml -p backend down
+      #重新開啟現在的container
+      - docker-compose -f /drone/src/docker-compose.yml -p backend up -d
 
 
 # volumes:
