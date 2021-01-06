@@ -4,6 +4,16 @@
 1. 可以供使用者移動書籍至currently reading, want to Read, read
 2. 也提供搜尋功能，可以讓使用者查詢想要閱讀的書籍並且加入自己的書庫
 3. 新增Drone
+
+
+
+
+
+
+## 自動建置自動部屬介紹
+請參考下面連結: 
+
+
 ## 使用方式
 
 * install all project dependencies with `npm install`
@@ -86,8 +96,3 @@ The backend API uses a fixed set of cached search results and is limited to a pa
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
