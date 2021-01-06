@@ -29,6 +29,16 @@ steps:
     commands:
       - cd /drone/src/
       - docker build -t myreadtest1:latest .
+volumes:
+  - name: docker_socket
+    host:
+      path: /var/run/docker.sock
+
+trigger:
+  branch:
+    - master
+  event:
+    - push
 
   
 
