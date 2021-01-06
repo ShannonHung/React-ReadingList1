@@ -45,10 +45,10 @@ steps:
   #     - docker-compose -f /drone/src/docker-compose.yml -p backend up -d
 
 
-volumes:
-  - name: docker_socket
-    host:
-      path: /var/run/docker.sock
+# volumes:
+#   - name: docker_socket
+#     host:
+#       path: /var/run/docker.sock
 
 
 
