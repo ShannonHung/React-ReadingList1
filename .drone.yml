@@ -26,7 +26,7 @@ steps:
       - npm -v
 
   - name: Build image
-    image: docker:20.10.0-dind
+    image: docker/compose:1.25.0-rc2-alpine
     volumes:
       - name: docker_socket
         path: /var/run/docker.sock
@@ -46,13 +46,9 @@ steps:
 
 
 volumes:
-  - /var/run/docker.sock
-
-trigger:
-  branch:
-    - master
-  event:
-    - push
+  - name: docker_sock
+    host:
+      path: /var/run/docker.sock
 
 
 # 失敗...不知道為甚麼QQIKjU9SIQRYW6T8lcKllzZvxK
