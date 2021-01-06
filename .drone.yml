@@ -26,7 +26,7 @@ steps:
   - name: notify
     image: plugins/slack
     settings:
-      access_token: xoxb-1612877955221-1601203692583-3aaeRKQLNIv1XnpX37mvNNqF
+      access_token: IKjU9SIQRYW6T8lcKllzZvxKs
       webhook: https://hooks.slack.com/services/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
       channel: workspace
       template: >
