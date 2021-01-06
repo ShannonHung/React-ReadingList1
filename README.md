@@ -3,7 +3,7 @@
 ## 功能介紹
 1. 可以供使用者移動書籍至currently reading, want to Read, read
 2. 也提供搜尋功能，可以讓使用者查詢想要閱讀的書籍並且加入自己的書庫
-3. 加上Drone CI/CD
+3. 加上Drone CI/CD?
 
 ## 使用方式
 
