@@ -45,10 +45,11 @@ steps:
   #     - docker-compose -f /drone/src/docker-compose.yml -p backend up -d
 
 
-# volumes:
-#   - name: docker_sock
-#     host:
-#       path: /var/run/docker.sock
+volumes:
+  - name: docker_socket
+    host:
+      path: /var/run/docker.sock
+
 
 
 # 失敗...不知道為甚麼QQIKjU9SIQRYW6T8lcKllzZvxK
