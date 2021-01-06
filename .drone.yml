@@ -11,27 +11,36 @@ steps:
   - name: test
     image: node:13.12.0-alpine
     commands:
-    - npm test
+    - npm run test
 
-  - name: notify
-    image: plugins/slack
+  - name: docker-build
+    image: plugins/docker
     settings:
-      webhook: https://hooks.slack.com/services/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
-      channel: docker
-      username: incoming-webhook
-      template: >
-        *{{#success build.status}}✔{{ else }}✘{{/success}} {{ uppercasefirst build.status }}: Build #{{ build.number }}* (type: `{{ build.event }}`)
+      username: ${username}
+      password: ${password}
+      repo: shannonhung/react-myread
+      tags: latest
+  
 
-        Commit: {{ repo.name }}/{{ truncate build.commit 8 }}
+  # - name: notify
+  #   image: plugins/slack
+  #   settings:
+  #     webhook: https://hooks.slack.com/services/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
+  #     channel: docker
+  #     username: incoming-webhook
+  #     template: >
+  #       *{{#success build.status}}✔{{ else }}✘{{/success}} {{ uppercasefirst build.status }}: Build #{{ build.number }}* (type: `{{ build.event }}`)
 
-        Branch: {{ build.branch }}
+  #       Commit: {{ repo.name }}/{{ truncate build.commit 8 }}
 
-        Author: {{ build.author }}
+  #       Branch: {{ build.branch }}
 
-        <{{ build.link }}|Visit build page ↗>
-    when:
-      branch:
-        - master
-      event:
-        - push
-      status: [ success, failure ]
+  #       Author: {{ build.author }}
+
+  #       <{{ build.link }}|Visit build page ↗>
+  #   when:
+  #     branch:
+  #       - master
+  #     event:
+  #       - push
+  #     status: [ success, failure ]
