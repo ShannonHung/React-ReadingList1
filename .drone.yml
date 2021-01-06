@@ -23,7 +23,7 @@ steps:
   - name: Test application with npm
     image: node:13.12.0-alpine
     commands:
-    - npm -v 
+      - npm -v
 
   - name: Build image
     image: docker:20.10.0-dind
@@ -33,6 +33,7 @@ steps:
     commands:
       - cd /drone/src/
       - docker build -t reinsurance-app:latest .
+
   # - name: Create service
   #   image: docker/compose
   #   volumes:
@@ -42,11 +43,18 @@ steps:
   #     - docker-compose -f /drone/src/docker-compose.yml -p backend down
   #     - docker-compose -f /drone/src/docker-compose.yml -p backend up -d
 
+
+volumes:
+  - name: docker_socket
+    host:
+      path: /var/run/docker.sock
+
 trigger:
   branch:
     - master
   event:
     - push
+
 
 # 失敗...不知道為甚麼QQIKjU9SIQRYW6T8lcKllzZvxK
   # - name: notify
