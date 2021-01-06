@@ -29,7 +29,7 @@ steps:
     image: docker:20.10.0-dind
     volumes:
       - name: docker_socket
-        path: /var/run/docker.sock:/var/run/docker.sock
+        path: /var/run/docker.sock
     commands:
       - echo "test"
       - cd /drone/src/
@@ -46,7 +46,7 @@ steps:
 
 
 volumes:
-  - /var/run/docker.sock:/var/run/docker.sock
+  - /var/run/docker.sock
 
 trigger:
   branch:
