@@ -37,7 +37,6 @@ steps:
 
         Author: {{ build.author }}
 
-<<<<<<< HEAD
         <{{ build.link }}|Visit build page ↗>
     when:
       branch:
@@ -45,12 +44,3 @@ steps:
       event:
         - push
       status: [ success, failure ]
-=======
-  #       <{{ build.link }}|Visit build page ↗>
-  #   when:
-  #     branch:
-  #       - master
-  #     event:
-  #       - push
-  #     status: [ success, failure ]
->>>>>>> 212e7869f58be68b549ac0a10467a6c4d7e14f9e
