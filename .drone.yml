@@ -25,8 +25,8 @@ steps:
   - name: notify
     image: plugins/slack
     settings:
-      webhook: https://hooks.slack.com/services/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
-      channel: dockertest
+      webhook: https://hooks.slack.com/services/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
+      channel: workspace
       template: >
         *{{#success build.status}}✔{{ else }}✘{{/success}} {{ uppercasefirst build.status }}: Build #{{ build.number }}* (type: `{{ build.event }}`)
 
