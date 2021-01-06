@@ -10,7 +10,7 @@ class BookList extends React.Component {
     return (
       <div className="list-books">
         <div className="list-books-title">
-          <h1>MyReads version3:</h1>
+          <h1>MyReads drone test</h1>
         </div>
         <BookShelf shelves={shelves} books={books} onChange={changeBookStatus} />
         <OpenSearch />
