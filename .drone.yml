@@ -16,28 +16,28 @@
   #     repo: shannonhung/react-myread
   #     tags: latest
   
-pipeline:
-  build:
-    image: node:13.12.0-alpine
+# pipeline:
+#   build:
+#     image: node:13.12.0-alpine
+#     commands:
+#       - yarn install
+#       - ya test
+
+  ######## 正式版##########
+kind: pipeline
+type: docker
+name: Staging
+
+steps:
+  - name: build
+    image: node
     commands:
-      - yarn install
-      - npm test
+    - npm install
 
-  ######### 正式版##########
-# kind: pipeline
-# type: docker
-# name: Staging
-
-# steps:
-#   - name: build
-#     image: node
-#     commands:
-#     - yarn install
-
-#   - name: test
-#     image: node
-#     commands:
-#     - npm run test
+  - name: test
+    image: node
+    commands:
+    - npm run test
 
 #   - name: Build docker image
 #     image: docker/compose:1.23.2
