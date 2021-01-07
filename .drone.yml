@@ -21,7 +21,7 @@ name: Staging
 
 steps:
   - name: build
-    image: node:13.12.0-alpine
+    image: node:15.5.1-alpine3.10
     commands:
     - npm install
 

@@ -1,5 +1,5 @@
-# pull official base image
-FROM node:13.12.0-alpine
+# pull official base image 13.12.0-alpine
+FROM node:15.5.1-alpine3.10
 
 # set working directory container 裡面的工作目錄
 WORKDIR /app 
